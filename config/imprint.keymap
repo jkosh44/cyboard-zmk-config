@@ -72,15 +72,15 @@
             >;
         };
 
-        FUNCTION {
+        LAYER {
             bindings = <
-&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5            &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans   &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans   &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans   &trans
-&trans  &trans  &trans  &trans  &trans                            &trans  &trans  &trans  &trans   &trans
-                                &trans  &trans  &trans    &trans  &trans  &trans
-                                &trans  &trans  &trans    &trans  &trans  &trans
+&trans  &kp F1  &kp F2  &kp F3  &kp F4        &kp F5                        &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11
+&trans  &trans  &trans  &trans  &trans        &trans                        &trans  &trans  &trans  &trans  &trans   &trans
+&trans  &trans  &trans  &trans  &trans        &trans                        &trans  &trans  &trans  &trans  &trans   &trans
+&trans  &trans  &trans  &trans  &trans        &trans                        &trans  &trans  &trans  &trans  &trans   &trans
+&trans  &trans  &trans  &trans  &trans                                              &trans  &trans  &trans  &trans   &trans
+                                &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR      &trans  &trans  &trans
+                                &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2    &trans  &trans  &trans
             >;
         };
     };
@@ -96,10 +96,10 @@
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,
+        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,
         <&zip_xy_scaler 1 3>,
-        // make this trackball output scrolling events by default instead of cursor movement,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
