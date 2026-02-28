@@ -52,13 +52,20 @@
 };
 
 // right hand trackball configuration
-// &trackball_peripheral_listener {
+&trackball_peripheral_listener {
 //    input-processors =
 //     activate layer 3 within 500ms of the trackball moving
 //     <&zip_temp_layer 3 500>;
-// };
-//left hand trackball configuration
 
+    sniper {
+        layers = <1>;
+        // Lower sensitivity when on sniper layer.
+        input-processors = 
+            <&zip_xy_scaler 1 4>;
+    };
+};
+
+// left hand trackball configuration
 &trackball_central_listener {
     input-processors =
         // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,
@@ -67,4 +74,13 @@
         <&zip_xy_to_scroll_mapper>,
         // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
+
+    // Lower sensitivity when on sniper layer, everything else is the same.
+    sniper {
+        layers = <1>;
+        input-processors = 
+            <&zip_xy_scaler 1 12>,
+            <&zip_xy_to_scroll_mapper>,
+            <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
+    };
 };
